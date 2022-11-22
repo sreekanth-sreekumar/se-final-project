@@ -7,7 +7,7 @@ class ParentService {
     constructor() {
         this.db = connect();
         // For Development
-        // this.db.sequelize.sync({ force: true }).then(() => {
+        // this.db.sequelize.sync({ alter: true }).then(() => {
         //     console.log("Drop and re-sync db.");
         // });
     }

@@ -15,7 +15,7 @@ class MeetingService {
     async getMeetings() {
         
         try {
-            const meetings = await this.db.meeting.findAll();
+            const meetings = await this.db.meeting_db.findAll();
             return meetings;
         } catch (err) {
             console.log(err);
@@ -25,7 +25,7 @@ class MeetingService {
 
     async getMeetingById(id) {
         try {
-            const meeting = await this.db.meeting.findAll({
+            const meeting = await this.db.meeting_db.findAll({
                 where: {
                     ID: id
                 }
@@ -39,7 +39,7 @@ class MeetingService {
 
     async getMeetingBySeniorCitizen(id) {
         try {
-            const meeting = await this.db.meeting.findAll({
+            const meeting = await this.db.meeting_db.findAll({
                 where: {
                     senior_citizen_id: id
                 }
@@ -53,7 +53,7 @@ class MeetingService {
 
     async createMeeting(parent_child_id, parent_pet_id, senior_citizen_id, start_time) {
         try {
-            await this.db.meeting.create({
+            await this.db.meeting_db.create({
                 parent_child_id: parent_child_id,
                 parent_pet_id: parent_pet_id,
                 senior_citizen_id: senior_citizen_id,
@@ -68,7 +68,7 @@ class MeetingService {
 
     async deleteMeetingById(id) {
         try {
-            await this.db.meeting.destroy({
+            await this.db.meeting_db.destroy({
                 where: {
                     ID: id
                 }
@@ -82,7 +82,7 @@ class MeetingService {
 
     async updateMeetingById(id, parent_child_id, parent_pet_id, senior_citizen_id, start_time) {
         try {
-            await this.db.meeting.update({
+            await this.db.meeting_db.update({
                 parent_child_id: parent_child_id,
                 parent_pet_id: parent_pet_id,
                 senior_citizen_id: senior_citizen_id,
